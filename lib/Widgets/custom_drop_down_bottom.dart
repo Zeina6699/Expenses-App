@@ -13,6 +13,7 @@ class _CustomDropDownBottomState extends State<CustomDropDownBottom> {
   @override
   Widget build(BuildContext context) {
      return DropdownButton(
+      
                 dropdownColor: Colors.grey,
                 value: widget.selectedCategory,
                 items:Category.values.map((e)=>DropdownMenuItem(value: e, child: Text(e.name.toUpperCase()))).toList(),

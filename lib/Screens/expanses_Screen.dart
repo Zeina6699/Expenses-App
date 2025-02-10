@@ -4,7 +4,8 @@ import 'package:expansess_appp/Widgets/new_expense.dart';
 import 'package:flutter/material.dart';
 
 class Expanses extends StatefulWidget {
-  const Expanses({super.key});
+ const Expanses({super.key});
+
 
   @override
   State<Expanses> createState() => _ExpansesState();
@@ -17,13 +18,20 @@ Expense(category: Category.food, title:'Breakfast', amount:31.3, date: DateTime.
 Expense(category: Category.leisure, title:'Cinema', amount:9.71, date: DateTime.now())
 ];
 
+void addExpense(Expense expense){
+ setState(() {
+     expenseList.add(expense);
+ });
+
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title:const Text('Flutter Exprnse Trucker'),centerTitle: true,
       actions: [IconButton(onPressed:(){
                     showModalBottomSheet (context: context, builder:(context){
-      return NewExpense();
+      return NewExpense(onAddExpense: addExpense,);
 });
 
       }, icon:const Icon(Icons.add)) ],

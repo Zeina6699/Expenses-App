@@ -2,13 +2,14 @@
 
 import 'package:expansess_appp/Models/expense.dart';
 import 'package:expansess_appp/Widgets/custom_drop_down_bottom.dart';
-import 'package:expansess_appp/Widgets/custom_show_dialog.dart';
+import 'package:expansess_appp/Widgets/custom_alert_dialog.dart';
 import 'package:expansess_appp/Widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class NewExpense extends StatefulWidget {
-  const NewExpense({super.key});
+  const NewExpense({super.key, required this.onAddExpense});
+  final void Function(Expense expense) onAddExpense;
 
   @override
   State<NewExpense> createState() => _NewExpenseState();
@@ -86,8 +87,13 @@ class _NewExpenseState extends State<NewExpense> {
                 showDialog(context: context, builder:(context){
                   return customAlertDialog();
                 });
-                   }
-                    }, child:const Text('Save Expense'))],),
+                   }else{
+                    setState(() {
+  widget.onAddExpense(Expense(category:selectedCategory, title: titleController.text, amount:enteredAmount, date: selectedDate!));
+    
+                    });
+                  Navigator.of(context).pop();}
+   } ,child:const Text('Save Expense'))],),
           )
         ],),
      ),

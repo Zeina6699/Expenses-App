@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class customAlertDialog extends StatelessWidget {
+class customAlertDialog extends StatefulWidget {
   const customAlertDialog({
     super.key,
   });
 
+  @override
+  State<customAlertDialog> createState() => _customAlertDialogState();
+}
+
+class _customAlertDialogState extends State<customAlertDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
