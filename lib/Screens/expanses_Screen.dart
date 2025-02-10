@@ -1,0 +1,46 @@
+import 'package:expansess_appp/Models/expense.dart';
+import 'package:expansess_appp/Widgets/expanses_list.dart';
+import 'package:expansess_appp/Widgets/new_expense.dart';
+import 'package:flutter/material.dart';
+
+class Expanses extends StatefulWidget {
+  const Expanses({super.key});
+
+  @override
+  State<Expanses> createState() => _ExpansesState();
+}
+
+class _ExpansesState extends State<Expanses> {
+final List<Expense> expenseList=[
+Expense(category: Category.work, title:'Flutter course', amount:29.9, date: DateTime.now()),
+Expense(category: Category.food, title:'Breakfast', amount:31.3, date: DateTime.now()),
+Expense(category: Category.leisure, title:'Cinema', amount:9.71, date: DateTime.now())
+];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title:const Text('Flutter Exprnse Trucker'),centerTitle: true,
+      actions: [IconButton(onPressed:(){
+                    showModalBottomSheet (context: context, builder:(context){
+      return NewExpense();
+});
+
+      }, icon:const Icon(Icons.add)) ],
+      ),
+      body:Center(
+        child:expanceListView(expenseList: expenseList)
+        
+        // SingleChildScrollView(
+       //   child: Column(
+         //   children: [
+        //   ...expenseList.map((e)=>Text(e.title)
+       //   )],
+          ),
+        );
+   
+  }
+}
+
+
+
