@@ -2,6 +2,7 @@
 
 import 'package:expansess_appp/Models/expense.dart';
 import 'package:expansess_appp/Widgets/custom_drop_down_bottom.dart';
+import 'package:expansess_appp/Widgets/custom_show_dialog.dart';
 import 'package:expansess_appp/Widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -78,10 +79,19 @@ class _NewExpenseState extends State<NewExpense> {
               CustomDropDownBottom(selectedCategory: selectedCategory)
                 ,Spacer(),
                      ElevatedButton( onPressed: (){Navigator.pop(context);}, child:const Text('Cancel'))
-                    ,ElevatedButton(onPressed: (){}, child:const Text('Save Expense'))],),
+                    ,ElevatedButton(onPressed: (){
+                     final double? enteredAmount=double.tryParse(amountController.text);
+                     final bool amountIsInvalid =enteredAmount==null||enteredAmount<=0;
+                   if(amountController.text.trim().isEmpty ==null||selectedDate==null||amountIsInvalid){
+                showDialog(context: context, builder:(context){
+                  return customAlertDialog();
+                });
+                   }
+                    }, child:const Text('Save Expense'))],),
           )
         ],),
      ),
    ));
   }
 }
+
