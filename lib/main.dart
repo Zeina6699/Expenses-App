@@ -38,8 +38,8 @@ class MyApp extends StatelessWidget {
           textTheme: ThemeData().textTheme.copyWith(
             titleLarge: TextStyle(
               fontWeight: FontWeight.normal,
-              color: myColorScheme.onSecondaryContainer,
-              fontSize: 17
+              color:Theme.of(context).colorScheme.primary.withOpacity(0.5)
+              ,fontSize: 17
             )
           ),
       ),
