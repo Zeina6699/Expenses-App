@@ -25,8 +25,7 @@ class expanceListView extends StatelessWidget {
           ),
         
         key: ValueKey(expenseList[index]),
-        child: ExpansesItem(expenseList[index],
-        ));
-    });
+        
+        child: ExpansesItem(expenseList[index]) );
+    });}
   }
-}

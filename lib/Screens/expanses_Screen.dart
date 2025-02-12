@@ -1,6 +1,7 @@
 import 'package:expansess_appp/Models/expense.dart';
 import 'package:expansess_appp/Widgets/expanses_list.dart';
 import 'package:expansess_appp/Widgets/new_expense.dart';
+import 'package:expansess_appp/chart/chart.dart';
 import 'package:flutter/material.dart';
 
 class Expanses extends StatefulWidget {
@@ -41,15 +42,19 @@ void addExpense(Expense expense){
 
       }, icon:const Icon(Icons.add)) ],
       ),
-      body:Center(
-        child:expanceListView(expenseList: expenseList, onRemoveExpense: (Expense expense) {  },)
-        
-        // SingleChildScrollView(
-       //   child: Column(
-         //   children: [
-        //   ...expenseList.map((e)=>Text(e.title)
-       //   )],
-          ),
+      body:Column(
+        children: [
+           Expanded(child: Chart(expenses: expenseList,)),
+          Expanded(child: expanceListView(expenseList: expenseList, onRemoveExpense: (Expense expense) {  },)),
+          
+            // SingleChildScrollView(
+           //   child: Column(
+             //   children: [
+            //   ...expenseList.map((e)=>Text(e.title)
+           //   )],
+              
+        ],
+      ),
         );
    
   }
