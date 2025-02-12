@@ -10,8 +10,9 @@ class ExpansesItem extends StatelessWidget {
       child: Padding(
         padding:const EdgeInsets.symmetric(vertical: 10,horizontal: 30),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
+            Text(expense.title,style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 20,),
             Row(children: [
               Text('\$${expense.amount.toStringAsFixed(2)}'),

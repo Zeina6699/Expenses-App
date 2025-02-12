@@ -19,6 +19,11 @@ class expanceListView extends StatelessWidget {
       itemBuilder:(context,index){
       return Dismissible(
         onDismissed: (direction){onRemoveExpense(expenseList[index]);},
+        background: Container(
+          color: Theme.of(context).colorScheme.error.withOpacity(0.7),
+          margin: Theme.of(context).cardTheme.margin,
+          ),
+        
         key: ValueKey(expenseList[index]),
         child: ExpansesItem(expenseList[index],
         ));

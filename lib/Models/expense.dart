@@ -27,3 +27,20 @@ class Expense {
   Expense({required this.category,required this.title, required this.amount, required this.date}):id=uuid.v4();
 }
 
+class ExpansesBucket{
+  final Category category;
+  final List<Expense> expenses;
+
+  double get totalExpense{
+    double sum=0;
+    for(var i in expenses){
+      sum=sum+i.amount;
+    }
+    return sum;
+  }
+
+  ExpansesBucket(this.category, this.expenses);
+  ExpansesBucket.forCategory(final List<Expense> allExpenses, this.category)
+  :expenses=allExpenses.where((e)=>e.category==category).toList();
+
+}
