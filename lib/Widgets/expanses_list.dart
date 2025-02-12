@@ -5,17 +5,23 @@ import 'package:flutter/material.dart';
 class expanceListView extends StatelessWidget {
   const expanceListView({
     super.key,
-    required this.expenseList,
+    required this.expenseList, required this.onRemoveExpense,
   });
 
   final List<Expense> expenseList;
+    final void Function(Expense expense) onRemoveExpense;
+
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount:expenseList.length,
       itemBuilder:(context,index){
-      return ExpansesItem(expenseList[index]);
+      return Dismissible(
+        onDismissed: (direction){onRemoveExpense(expenseList[index]);},
+        key: ValueKey(expenseList[index]),
+        child: ExpansesItem(expenseList[index],
+        ));
     });
   }
 }

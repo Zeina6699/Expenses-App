@@ -21,6 +21,11 @@ Expense(category: Category.leisure, title:'Cinema', amount:9.71, date: DateTime.
 void addExpense(Expense expense){
  setState(() {
      expenseList.add(expense);
+ });}
+
+ void removeExpense(Expense expense){
+ setState(() {
+     expenseList.remove(expense);
  });
 
 }
@@ -37,7 +42,7 @@ void addExpense(Expense expense){
       }, icon:const Icon(Icons.add)) ],
       ),
       body:Center(
-        child:expanceListView(expenseList: expenseList)
+        child:expanceListView(expenseList: expenseList, onRemoveExpense: (Expense expense) {  },)
         
         // SingleChildScrollView(
        //   child: Column(
