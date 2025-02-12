@@ -13,11 +13,11 @@ class _customAlertDialogState extends State<customAlertDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('sss'),
-      content: Text('ssss'),
+      title: const Text('sss'),
+      content: const Text('ssss'),
        actions: [
         TextButton(onPressed: (){Navigator.of(context).pop();},
-         child:Text('Ok'))
+         child:const Text('Ok'))
        ],
     );
   }

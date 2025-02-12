@@ -38,7 +38,7 @@ class _NewExpenseState extends State<NewExpense> {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(height:300,width:double.infinity,
+    return  SizedBox(height:300,width:double.infinity,
    child:  Padding(
      padding: const EdgeInsets.symmetric(vertical: 22,horizontal: 15),
      child: SingleChildScrollView(
@@ -78,14 +78,14 @@ class _NewExpenseState extends State<NewExpense> {
             padding:const  EdgeInsets.all(8.0),
             child: Row(children: [
               CustomDropDownBottom(selectedCategory: selectedCategory)
-                ,Spacer(),
+                ,const Spacer(),
                      ElevatedButton( onPressed: (){Navigator.pop(context);}, child:const Text('Cancel'))
                     ,ElevatedButton(onPressed: (){
                      final double? enteredAmount=double.tryParse(amountController.text);
                      final bool amountIsInvalid =enteredAmount==null||enteredAmount<=0;
-                   if(amountController.text.trim().isEmpty ==null||selectedDate==null||amountIsInvalid){
+                   if(selectedDate==null||amountIsInvalid){
                 showDialog(context: context, builder:(context){
-                  return customAlertDialog();
+                  return const customAlertDialog();
                 });
                    }else{
                     setState(() {

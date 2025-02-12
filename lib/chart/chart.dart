@@ -31,8 +31,8 @@ class Chart extends StatelessWidget {
     final bool isDarkMode=MediaQuery.of(context).platformBrightness==Brightness.dark;
    
     return Container(
-      margin:EdgeInsets.all(16),
-      padding:EdgeInsets.symmetric(horizontal: 8,vertical: 16),
+      margin:const EdgeInsets.all(16),
+      padding:const EdgeInsets.symmetric(horizontal: 8,vertical: 16),
       width: double.infinity,
       height: 150,
       decoration: BoxDecoration(
@@ -61,11 +61,11 @@ class Chart extends StatelessWidget {
         Row(
           children:buckets.map((e)=>Expanded(child: 
         Padding(
+        padding:const  EdgeInsets.symmetric(horizontal: 4),
         child: Icon(categoryIcons[e.category],
         color:isDarkMode? Theme.of(context).colorScheme.primary
         :Theme.of(context).colorScheme.primary.withOpacity(0.7)
-        ),
-          padding:const  EdgeInsets.symmetric(horizontal: 4) ))).toList(),
+        ) ))).toList(),
         
         )
         ],

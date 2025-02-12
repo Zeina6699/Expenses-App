@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
         colorScheme: myColorScheme,
-        bottomSheetTheme: BottomSheetThemeData().copyWith(
+        bottomSheetTheme: const BottomSheetThemeData().copyWith(
           backgroundColor: myDarkColorScheme.onPrimaryContainer
         ),
-        appBarTheme: AppBarTheme().copyWith(
+        appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: myColorScheme.onPrimaryContainer,
           foregroundColor: myColorScheme.primaryContainer
         ),
-        cardTheme: CardTheme().copyWith(
+        cardTheme: const CardTheme().copyWith(
           color: myColorScheme.secondaryContainer,
           margin: EdgeInsets.symmetric(horizontal: 16,vertical: 8)
         ),
@@ -42,7 +42,6 @@ class MyApp extends StatelessWidget {
               fontSize: 17
             )
           ),
-       useMaterial3:true,
       ),
 
 
@@ -67,9 +66,8 @@ class MyApp extends StatelessWidget {
               fontSize: 17
             )
           ),
-       useMaterial3:true,
       ),
       
-home: Expanses(),    );
+home: const Expanses(),    );
   }
 }
